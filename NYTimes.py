@@ -65,6 +65,8 @@ def main():
         output_file.write("Query: %s\n%s" % (query, listNews))
         output_file.close()
 
+        parsedNews = NewsParser.newsParser(listNews)
+
         print "Query: %s\n%s\n\n\n%s" % (query, listNews, parsedNews)
         
 if __name__ == '__main__':

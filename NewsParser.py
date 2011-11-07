@@ -22,7 +22,6 @@ def newsParser(news):
 
         # prune articles that do not contain any keyword
         keys = newsDict.keys()
-        print "keys", keys
         if not (len(keys) == 1 and keys[0] == "other"):
             newsList.append((link, newsDict, count))
     return newsList
