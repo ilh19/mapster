@@ -36,11 +36,9 @@ class Bing_API:
             if len(category) > 0:
                 url = url + '&News.Category=' + category
             
-            print url
             try:
                 f = urlopen(url)
                 responses = json.loads(f.read())
-                print responses[u'SearchResponse'].keys()
                 f.close()
                 responses = responses[u'SearchResponse'][u'News'][u'Results']
                 
