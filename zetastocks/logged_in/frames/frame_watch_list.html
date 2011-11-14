@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Zeta: Watch List</title>
+		<link href="../../style/style_frame.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="page">
+			<div id="h-watch"></div>
+			<div id="large-content"></div>
+                {% if is_error %}
+                    <font color="#FF0000">{{error_message}}</font><br>
+                {% endif %}
+				Stock Symbol:<br />
+                <form action="/addwatch" method="post">
+                <input type="text" name="watchlist" ></input>
+                <input type="submit" style="height: 1.5em; width: 5em" value="Add"><br>
+                </form>
+                Stock Symbol:<br />
+				<form action="/deletewatch" method="post">
+                <input type="text" name="deletion_candidate" ></input>
+                <input type="submit" style="height: 1.5em; width: 5em" value="Delete">
+                </form><br>
+            <center><table width="400px" border="0">
+            <tr><b>
+            <td width="15%">Symbol</td>
+            <td width="15%">Price</td>
+            <td width="15%">Change</td>
+            <td>Company</td>
+            </b></tr>
+            </table>
+            <hr width="398px" />
+            <table width="400px" border="0">
+            <!-- Loop through watchlist and display all symbols with their respective prices and change. -->
+            {% for watchlist in watchlists %}           
+            <tr>
+                <td width="15%">{{ watchlist.symbol }}</td>
+                <td width="15%">{{ watchlist.price }}</td>
+                <td width="15%">{{ watchlist.change }}</td>
+                <td>{{ watchlist.companyname }}</td>
+            </tr>
+            {% endfor %}
+            </table></center>
+		</div>
+	</body>
+</html>

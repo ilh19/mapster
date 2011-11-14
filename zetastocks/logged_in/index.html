@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head> 
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Zeta: Home</title>
+		<link href="../style/style_logged_in.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<div id="nonFooter">
+			<div id="content">
+				<!-- Display the navigation bar. -->
+				<div id="header">
+					<div id="login">
+						<a href={{logouturl}}>Logout</a>
+					</div>
+					
+					<h1>Zeta Portfolio Management</h1>
+					
+					<ul id = "button-bar">
+						<li id = "button-bar-home"><a href = "index.html">Home</a></li>
+						<li id = "button-bar-portfolio"><a href = "portfolio.html">My Portfolio</a></li>
+						<li id = "button-bar-quotes"><a href = "quotes.html">Quotes</a></li>
+						<li id = "button-bar-contact"><a href = "contact.html">Contact Us</a></li>
+						<li id = "button-bar-help"><a href = "help.html">Help</a></li>
+					</ul>
+				</div>
+				
+				<!-- Display the news banner. -->
+				<div id="large-banner">
+	                <img src="../images/news_banner.gif" />
+	            </div>
+				
+				<!-- Page content. -->
+				<div id="large-content">
+					<h1>Top of Content</h1>
+					<h2>April 26, 2010:</h2>
+					<p><a href="http://www.nytimes.com/2010/04/27/business/global/27drachma.html?src=busln" target=_blank>Confidence in Greek Debt Sinks Again</a><br />New York Times<b> - Matthew Saltmarsh</b><br />
+					Investor confidence in Greek assets sank again on Monday amid uncertainty over an international bailout, even though Germany promised it could pass legislation to free up the lion's share of the money quickly ...</p>
+					<p><a href="http://online.wsj.com/article/SB10001424052748703465204575207791215682792.html?mod=WSJ_hpp_sections_business" target=_blank>Treasury Gives OK to Sell Some Citi Shares</a><br />Wall Street Journal<b> - Darrell A. Hughes</b><br />
+					The US Treasury Department approved a sale of 1.5 billion shares of Citigroup Inc. common stock in a step toward reducing its 27% stake in the Wall Street firm.</p>
+					<p><a href="http://money.cnn.com/2010/04/26/markets/oil/" target=_blank>Oil Prices Hover</a><br />CNNMoney<b> - Chavon Sutton</b><br />
+					Oil prices straddled the breakeven point Monday as initial optimism about Greece's bailout waned, sending the dollar higher against the euro.</p>
+					<p><a href="http://www.businessweek.com/news/2010-04-26/u-s-stock-futures-gain-caterpillar-fiserv-advance-in-europe.html" target=_blank>U.S. Stocks Fluctuate as Caterpillar Gains, Citigroup Falls</a><br />Publication<b> - Whitney Kisling</b><br />
+					U.S. stocks swung between gains and losses as improving earnings at Caterpillar Inc. and Whirlpool Corp. sent industrial shares higher, while Citigroup Inc. led banks lower as the government said it will sell shares in the company.</p>
+					
+					<h2>April 25, 2010:</h2>
+					<p><a href="http://www.washingtonpost.com/wp-dyn/content/article/2010/04/25/AR2010042503452.html" target=_blank>SEC Gathered Range of Experts for Goldman Case</a><br />Washington Post - <b>Zachary A. Goldfarb</b><br />
+						Late into the night, they darted from office to office, carrying thick reams of documents, building the most prominent legal case to grow out of the financial crisis ...</p>
+					<p><a href="http://www.freep.com/article/20100425/BUSINESS01/4250426/1002/Business/Fords-1B-profit-could-be-start-of-good-year" target=_blank>Ford's $1B Profit Could Be Start of Good Year</a><br />Detroit Free Press - <b>Brent Snavely</b><br />
+					Four years after launching its Way Forward turnaround plan and hiring now-lauded CEO Alan Mulally, Ford Motor stands at the threshold of what could be its comeback year ...</p>
+					<p><a href="http://www.marketwatch.com/story/goldman-emails-show-need-for-bank-reform-dodd-2010-04-25?reflink=MW_news_stmp" target=_blank>Goldman Emails Show Need For Reform</a><br />MarketWatch<b> - Deborah Levine</b><br />
+					Emails at Goldman Sachs Group Inc. released by a Senate subcommittee show just how much financial reform is needed, two leading senators said on Sunday ...</p>
+					<p><a href="http://online.wsj.com/article/SB10001424052748704446704575206011032515500.html?mod=fox_australian" target=_blank>Greece Confident of EU-IMF Bailout Package</a><br />Wall Street Journal<b> - Geoffery T. Smith And Adam Cohen</b><br />
+					Greek Finance Minister George Papaconstantinou said Sunday that he expects final terms and conditions of an aid package for Greece to be ready by early May and that it will be acceptable to all his partners in the euro zone, including Germany ...</p>
+					<h3>Bottom of Content</h3>
+				</div>
+	            
+	            <div id="large-content">
+					<h1>Top of Content</h1>
+					<h2>Dow Jones Tweets:</h2>
+					<!-- Gets the tweeter's image, name, link, text and the date they tweeted. -->
+					{% for tweet in DowJones %}
+						<p class="tweet"><img src={{tweet.image}} float="left" width="48px" height="48px"/>
+							<b>{{tweet.name}}</b>:  <a href={{tweet.link}} target=_blank>{{tweet.text}}</a>
+						<br />{{tweet.date}}</p>
+					{% endfor %}
+					<h3>Bottom of Content</h3>
+				</div>
+	            
+	            <div id="large-content">
+					<h1>Top of Content</h1>
+					<h2>Nasdaq Tweets:</h2>
+					<!-- Gets the tweeter's image, name, link, text and the date they tweeted. -->
+					{% for tweet in Nasdaq %}
+						<p class="tweet"><img src={{tweet.image}} float="left" width="48px" height="48px"/>
+							<b>{{tweet.name}}</b>:  <a href={{tweet.link}} target=_blank>{{tweet.text}}</a>
+						<br />{{tweet.date}}</p>
+					{% endfor %}
+					<h3>Bottom of Content</h3>
+				</div>
+	            
+	            <div id="large-content">
+					<h1>Top of Content</h1>
+					<h2>S&P 500 Tweets:</h2>
+					<!-- Gets the tweeter's image, name, link, text and the date they tweeted. -->
+					{% for tweetSP in SP500 %}
+						<p class="tweet"><img src={{tweetSP.image}} float="left" width="48px" height="48px"/>
+						<b>{{tweetSP.name}}</b>:  <a href={{tweetSP.link}} target=_blank>{{tweetSP.text}}</a>
+						<br />{{tweetSP.date}}</p>
+					{% endfor %}
+					<h3>Bottom of Content</h3>
+				</div>
+			</div>
+		</div>
+			
+		<!-- Footer. -->
+		<div id="footer">
+			<p align="center">&#169 Zeta Portfolio Management.  All Rights Reserved. Part of <a href="http://courses.cs.tamu.edu/jarvi/2010/CSCE-315/" target="_blank" color="#FFFFF">CSCE 315 Spring 2010</a> at <a href="http://www.tamu.edu" target="_blank">Texas A&M University</a>.</p>
+		</div>
+	</body>
+</html>

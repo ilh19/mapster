@@ -1,0 +1,115 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: #FFF;
+	font: 11px/1.7 Verdana, Arial, sans-serif;
+	color: #414141;
+}
+
+a {
+	outline: none !important;
+}
+
+.important {
+	background: #ffe5e4;
+	border: 1px solid #d71910;
+	padding: 5px;
+	color: #000;
+	display: none;
+}
+
+#page {
+	width: 540px;
+	margin: 0 auto;
+	background: #FFF;
+}
+	/* Header includes the logo, navigation bar and login. */
+	#h-portfolio {
+		height: 75px;
+		margin: 0;
+		background: #FFF url(../images/portfolio_header.gif) no-repeat;
+		margin-bottom: 8px;
+	}
+	#h-bs {
+		height: 75px;
+		margin: 0;
+		background: #FFF url(../images/buy_sell_header.gif) no-repeat;
+		margin-bottom: 8px;
+	}
+	#h-watch {
+		height: 75px;
+		margin: 0;
+		background: #FFF url(../images/watch_list_header.gif) no-repeat;
+		margin-bottom: 8px;
+	}
+	#h-capital {
+		height: 75px;
+		margin: 0;
+		background: #FFF url(../images/add_capital_header.gif) no-repeat;
+		margin-bottom: 8px;
+	}
+	#h-history {
+		height: 75px;
+		margin: 0;
+		background: #FFF url(../images/history_header.gif) no-repeat;
+		margin-bottom: 8px;
+	}			
+	
+	/* Large-content is for content that takes up the whole page. */
+	#large-content {
+		background: #FFFFFF;
+	}
+		#large-content p {
+			width: 540px;
+			padding-left: 5px;
+			padding-right: 15px;
+			padding-top: 8px;
+			line-height: 1.5;
+		}
+		/* h2 is the header for large-content. */
+		#large-content h2 {
+			margin-right: 15px;
+			margin-left: 5px;
+			margin-top: 3px;
+			font-weight: normal;
+			border-bottom: 1px solid #bfbfbf;
+			font-size: 14px;
+			font-family: Arial, sans-serif;
+			color: #000;
+		}
+		/* h1 is the rounded top for large-content. */
+		#large-content h1 {
+			text-indent: -5000px;
+			height: 8px;
+			background: #d3d1d0 url(../images/right_content_top.gif) no-repeat;
+		}
+		/* h3 is the rounded bottom for large-content. */	
+		#large-content h3 {
+			text-indent: -5000px;
+			height: 8px;
+			background: #d3d1d0 url(../images/right_content_bottom.gif) no-repeat;
+			margin-bottom: 8px;
+		}	
+		/* Link color. */
+		#large-content a {
+			padding: 1px;
+			margin: -1px;
+			text-decoration: none;
+			color: #337fbb;
+			border-bottom: 1px solid #d3d1d0;	
+		}	
+		#large-content a:hover {
+			background: #cae3f8;
+			color: #0c3a5e;
+			border-bottom-color: #d3d1d0;
+		}
+		
+	/* Bold content. For use w/ sections. */
+	.content-bold {
+		color: #000;
+		font-weight: bold;
+	}
+			

@@ -1,0 +1,62 @@
+<tr></tr><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html> 
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Zeta: Portfolio</title>
+		<link href="../style/style_logged_in.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<div id="nonFooter">
+			<div id="content">
+				<!-- Display the navigation bar. -->
+				<div id="header">
+					<div id="login">
+						<a href={{logouturl}}>Login</a>
+					</div>
+					
+					<h1>Zeta Portfolio Management</h1>
+					
+					<ul id = "button-bar">
+						<li id = "button-bar-home"><a href = "index.html">Home</a></li>
+						<li id = "button-bar-portfolio"><a href = "portfolio.html">My Portfolio</a></li>
+						<li id = "button-bar-quotes"><a href = "quotes.html">Quotes</a></li>
+						<li id = "button-bar-contact"><a href = "contact.html">Contact Us</a></li>
+						<li id = "button-bar-help"><a href = "help.html">Help</a></li>
+					</ul>
+				</div>
+				
+				<!-- Display the portfolio banner. -->
+				<div id="large-banner">
+					<img src="../images/portfolio_banner.gif" />
+				</div>
+				
+				<!-- In Portfolio, frames are used so that the entire page does not reload when the user clicks something. -->
+				<div id="multi-content">
+					<div id="multi-left">
+						<h1>Top of Content</h1>
+						<ul>
+							<li id = "multi-left-port"><a href="frames/frame_my_portfolio.html" target="FRAME">My Portfolio</a></li>
+							<li id = "multi-left-bs"><a href="frames/frame_buy_sell.html" target="FRAME">Buy/Sell</a></li>
+							<li id = "multi-left-watch"><a href="frames/frame_watch_list.html" target="FRAME">My Watch List</a></li>
+							<li id = "multi-left-capital"><a href="frames/frame_add_capital.html" target="FRAME">Add Capital</a></li>
+							<li id = "multi-left-history"><a href="frames/frame_history.html" target="FRAME">Transaction History</a></li>
+						</ul>
+						<h3>Bottom of Content</h3>
+					</div>
+					
+					<div id="multi-right">
+						<h1>Top of Content</h1>
+						<iframe name="FRAME" src="frames/frame_my_portfolio.html" frameborder="0" width="600px" height="500px" scrolling=auto></iframe>
+						<h3>Bottom of Content</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+		<!-- Footer. -->
+		<div id="footer">
+			<p align="center">&#169 Zeta Portfolio Management.  All Rights Reserved. Part of <a href="http://courses.cs.tamu.edu/jarvi/2010/CSCE-315/" target="_blank" color="#FFFFF">CSCE 315 Spring 2010</a> at <a href="http://www.tamu.edu" target="_blank">Texas A&M University</a>.</p>
+		</div>
+	</body>
+</html>

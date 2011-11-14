@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Zeta: History</title>
+		<link href="../../style/style_frame.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="page">
+			<div id="h-history"></div>
+			<div id="large-content">
+            {% ifequal fresh_start "false" %}
+                <table width="540px" border="0">
+                    <tr align="center"><b>
+                    <td bordercolor="#000000" frame="below" width="25%">Date</td>
+          		    <td bordercolor="#000000" frame="below" width="25%">Action Type</td>
+            		<td bordercolor="#000000" frame="below">Action</td>
+                    </b></tr>
+                    </table>
+                    <hr width="538px" />
+                    <table width="540px" border="0">
+                <!-- Print out color-coded history -->
+                {% for history in histories %}
+                <!--[Date][History type][Action]--> 
+					<!-- Buy behavior. -->   
+                    {% ifequal history.type "buy" %}
+                        <tr bgcolor=#AEFAAB>
+                        <td width="25%">{{history.date}}</td>
+                        <td width="25%">Bought {{history.symbol}}</td>
+                        <td>{{history.shares}} shares at ${{history.price|floatformat:2}} per share</td>
+                        </tr>
+                    <!-- Sell behavior. -->
+                    {% else %}{% ifequal history.type "sell" %}
+                        <tr bgcolor=#FAABAB>
+                        <td width="25%">{{history.date}}</td>
+                        <td width="25%">Sold {{history.symbol}}</td>
+                        <td>{{history.shares}} shares at ${{history.price|floatformat:2}} per share</td>
+                        </tr>
+                    <!-- Capital behavior. -->
+                    {% else %}{% ifequal history.type "capital" %}
+                        {% if history.greater_than_zero %} 
+
+                        <tr bgcolor=#D5DCF8>
+                        <td width="25%">{{history.date}}</td>
+                        <td width="25%">Capital Added</td>
+                        <td>${{history.price|floatformat:2}}</td>
+                        </tr>
+                        {% endif %}
+                        {% if not history.greater_than_zero %}
+                        
+                        <tr bgcolor=#FEF5BA>
+                        <td width="25%">{{history.date}}</td>
+                        <td width="25%">Capital Removed</td>
+                        <td>${{history.price|floatformat:2}}</td>
+                        </tr>
+                        {% endif %}
+                        
+                    {% endifequal %}{% endifequal %}{% endifequal %}
+                
+                {% endfor %}
+                </table>
+            {% endifequal %}
+			<!-- Display this message if user has no history.. -->
+            {% ifequal fresh_start "true" %}
+                <p>No history available. Please go to Buy/Sell to get started with Zetastocks.</p>
+            {% endifequal %}
+			</div>
+		</div>
+	</body>
+</html>

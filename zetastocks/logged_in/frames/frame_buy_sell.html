@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Zeta: My Portfolio</title>
+		<link href="../../style/style_frame.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="page">
+			<div id="h-bs"></div>
+			<div id="large-content">
+                {% if is_confirm %}
+                    <font color="#00BB00"><b>{{confirm_message}}</b></font><br>
+                {% endif %}
+                {% if is_error %}
+                    <font color="#FF0000">{{error_message}}</font><br>
+                {% endif %}
+				<form action="/buysell" method="post">
+					<p>Stock Symbol:<br />
+					<input type="text" cols="10" name="symbol" /><br>
+					
+					Number of Shares:<br />
+                    <input type="text" cols="10" name="shares" /><br /><br />
+                    <select name = "buysell" style="height: 1.5em; width: 5em">
+                    <option name = "Buy"> Buy</option>
+                    <option name = "Sell"> Sell</option></select>
+					<input type="submit" style="height: 1.5em; width: 5em" value="Submit" />
+                    </b></p>
+              </form>
+                
+			</div>
+		</div>
+	</body>
+</html>

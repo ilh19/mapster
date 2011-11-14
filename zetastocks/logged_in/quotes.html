@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Zeta: Quotes</title>
+		<link href="../style/style_logged_in.css" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<div id="nonFooter">
+			<div id="content">
+				<!-- Display the navigation bar. -->
+				<div id="header">
+					<div id="login">
+						<a href={{logouturl}}>Login</a>
+					</div>
+					
+					<h1>Zeta Portfolio Management</h1>
+					
+					<ul id = "button-bar">
+						<li id = "button-bar-home"><a href = "index.html">Home</a></li>
+						<li id = "button-bar-portfolio"><a href = "portfolio.html">My Portfolio</a></li>
+						<li id = "button-bar-quotes"><a href = "quotes.html">Quotes</a></li>
+						<li id = "button-bar-contact"><a href = "contact.html">Contact Us</a></li>
+						<li id = "button-bar-help"><a href = "help.html">Help</a></li>
+					</ul>
+				</div>
+				
+				<!-- Display the quotes banner. -->
+				<div id="large-banner">
+					<img src="../images/quotes_banner.gif" />
+				</div>
+				
+				<!-- Page content. -->
+				<div id="large-content">
+						<h1>Top of Content</h1>
+						<form action="/sign" method="post">
+							<p>
+								Stock Symbol:
+								<input type="text" name="content" />
+								
+								Currency:
+								<select name = "currency">
+								<option name = "usd"> U.S. Dollar</option>
+								<option name = "eur">Euro</option>
+								<option name = "jpy">Japanese Yen</option>
+								<option name = "cad">Canadian Dollar</option>
+								<option name = "mxn">Mexican Peso</option>
+								<option name = "cny">Chinese Yuan</option></select> 
+								  
+							<input type="submit" value="Get Quote"></p>
+						</form>
+						<h3>Bottom of Content</h3>
+				</div>
+				<!-- Checks to see if this is the first time someone has logged in. -->
+	            {% ifequal fresh_start "false" %}
+					<div id="multi-content">
+						<div id="multi-left">
+							<h1>Top of Content</h1>
+							<!-- Begin grabbing the company's information. -->
+							<h2>{{quote.companyname}} ({{quote.symbol}})</h2>
+							<p>
+								<span class="content-bold"><font size="5">{{quote.price|floatformat:2}}</font></span><br />
+								{% if change_positive %}
+									<font color="#0EA023" size="3"><span class="content-bold">+{{quote.change|floatformat:2}}</font></span><br />
+								{% else %}
+									<font color="#D11414" size="3"><span class="content-bold">{{quote.change|floatformat:2}}</font></span><br />
+								{% endif %}
+								
+								<!-- If the query returns invalid, don't display after-hours price. -->
+								{% ifnotequal quote.symbol "Invalid" %}
+									After Hours: {{quote.priceafterhours|floatformat:2}} <br />
+									{{quote.date}}, {{quote.time}}<br />
+								{% endifnotequal %}
+								
+								{{quote.currency}} <br /><br />
+							</p>
+							<h3>Bottom of Content</h3>
+						</div>
+						
+						<div id="right-banner">
+							<h1>Top of Content</h1>
+							<!-- Display the stock's chart. -->
+							{% if has_image %}
+								{{pictureurl}}
+							{% endif %}
+							<h3>Bottom of Content</h3>
+						</div>
+					</div>
+					
+					<!-- Display tweets about the quote symbol. -->
+	                {% ifnotequal quote.symbol "Invalid" %}				
+						<div id="large-content">
+							<h1>Top of Content</h1>
+							<h2>Tweets About {{quote.symbol}}</h2>
+								{% for tweet in tweets %}
+									<p class="tweet"><img src={{tweet.image}} float="left" width="48px" height="48px"/>
+										<b>{{tweet.name}}</b>:  <a href={{tweet.link}} target=_blank>{{tweet.text}}</a>
+									<br />{{tweet.date}}</p>
+								{% endfor %}
+							<h3>Bottom of Content</h3>
+						</div>
+					{% endifnotequal %}	
+				{% endifequal %}
+			</div>
+		</div>	
+			
+		<!-- Footer. -->
+		<div id="footer">
+			<p align="center">&#169 Zeta Portfolio Management.  All Rights Reserved. Part of <a href="http://courses.cs.tamu.edu/jarvi/2010/CSCE-315/" target="_blank" color="#FFFFF">CSCE 315 Spring 2010</a> at <a href="http://www.tamu.edu" target="_blank">Texas A&M University</a>.</p>	
+		</div>
+	</body>
+</html>

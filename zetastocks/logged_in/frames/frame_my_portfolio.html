@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Zeta: My Portfolio</title>
+		<link href="../../style/style_frame.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="page">
+			<div id="h-portfolio"></div>
+			<div id="large-content">
+                {% ifequal fresh_start "false" %}
+                    <h2>My Stocks: </h2>
+                    <p>&nbsp;</p>
+                    <table width="540px" border="0">
+                    <tr><b><center>
+                    <td width="20%">Symbol</td>
+                    <td width="25%">Number of Shares</td>
+                    <td width="30%">Current Share Price</td>
+                    <td width="25%">Total Price</td>
+                    </center></b></tr>
+                    </table>
+                    
+                    <table width="540px" border="0">
+                    <!-- Print out all stocks that user owns. -->
+                    {% for stock in stocks %}
+                        {% ifnotequal stock.shares 0 %}
+                            <tr><center>
+                            <td width="20%">{{stock.stock}}</td>
+                            <td width="25%">{{stock.shares}}</td>
+                            <td width="30%">${{stock.current_value|floatformat:2}}</td>
+                            <td width="25%">${{stock.total_value|floatformat:2}}</td>
+                            </center></tr>
+                        {% endifnotequal %}
+                    {% endfor %}
+                    <tr><center>
+                        <td width="20%">TOTAL:</td>
+                        <td width="25%">&nbsp;</td>
+                        <td width="30%">&nbsp;</td>
+                        <td width="25%">${{total_stock_value|floatformat:2}}</td>
+                    </center></tr>
+                    </table>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                    
+					<!-- Print out user's equity. -->
+                    <h2>My Capital: </h2>
+                    <p> Free Capital: ${{free_capital|floatformat:2}} </p>
+                    <p> Total Equity: ${{total_capital|floatformat:2}}</p>
+                {% else %}
+                    {% ifequal has_capital "false" %} <!-- Check to see if user portfolio contains anything. -->
+                        <p> You have nothing in the portfolio. Please go to Add Capital to get started.<p>
+                    {% else %}
+                        <p> You have purchased no stocks. Please go to Buy/Sell to start trading stocks.</p>
+                    {% endifequal %}
+                {% endifequal %}
+						
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Zeta: Add Capital</title>
+		<link href="../../style/style_frame.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div id="page">
+			<div id="h-capital"></div>
+			<div id="large-content">
+				<!-- Error checking. -->
+				{% if is_confirm %}
+                    <font color="#00BB00"><b>{{confirm_message}}</b></font><br>
+                {% endif %}
+                {% if is_error %}
+                    <font color="#FF0000">{{error_message}}</font><br>
+                {% endif %}
+                Balance:  <b>{{usercapstring}}</b><br /><br />
+                
+                Amount to Add:         
+				<form action="/addcapital" method="post" float="right">
+					 <input type="text" cols="10" name="amount" />
+                    <input type="submit" style="height: 1.5em; width: 5em" value="Add" />
+				</form>
+                
+                Amount to Remove:
+				<form action="/removecapital" method="post" float="right">
+					 <input type="text" cols="10" name="amount" />
+                    <input type="submit" style="height: 1.5em; width: 5em" value="Remove" />
+				</form>
+                
+			</div>
+		</div>
+	</body>
+</html>
