@@ -1,7 +1,7 @@
 import Document
 import string
 
-categoriesDict = {"natural disasters": ["tornado", "earthquake", "quake"], "politics": ["war", "riot"]} #testing purposes
+categoriesDict = {"natural disasters": ["tornado", "earthquake", "quake", "obama"], "politics": ["war", "riot"]} #testing purposes
 class GeoLocation:
     #
     # parameters:
