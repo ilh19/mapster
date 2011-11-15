@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+		<title>Mapster</title>
+
+		<!--<link href="../style/style_default.css" rel="stylesheet" type="text/css" />-->
+
+        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+
+	</head>
+
+	<body>
+
+		<div id="nonFooter">
+
+			<div id="content">
+
+				<!-- Display the navigation bar. -->
+
+				<div id="header">
+
+					<div id="login">
+
+						<a href={{loginurl}}>Login</a>
+
+					</div>
+
+					
+
+					<h1>Zeta Portfolio Management</h1>
+
+					
+
+					<ul id = "button-bar">
+
+						<li id = "button-bar-home"><a href = "index.html">Home</a></li>
+
+						<li id = "button-bar-why"><a href = "why.html">Why ZETA?</a></li>
+
+						<li id = "button-bar-about"><a href = "about.html">About Us</a></li>
+
+						<li id = "button-bar-contact"><a href = "contact.html">Contact Us</a></li>
+
+						<li id = "button-bar-signup"><a href = "signup.html">Sign Up</a></li>
+
+					</ul>
+
+				</div>
+
+				
+
+				<!-- Display the welcome banner. -->
+
+				<div id="large-banner-h">
+
+					<h1></h1>
+
+	                <img src="../images/home_banner.gif" />
+
+					<h3></h3>
+
+	            </div>
+
+				
+
+				<!-- Page content. -->
+
+				<div id="large-content">
+
+					<h1>Top of Content</h1>
+
+					<h2>In A Nutshell</h2>
+
+					<p>We at Team Zeta are very proud to introduce our newest product, Zeta Portfolio Management.<br /><br />Our goals for this assignment were very ambitious, but we think that we've hit a home run. Our product has only been online for a couple of days, yet we already have many satisfied users. Don't believe us? View our <a href="why.html">testimonials</a>!</p>
+
+					
+
+					<h2>Our Product</h2>
+
+					<p>We really believe that our web application has the ability to change the way people invest. It's easy. It's innovative. It's awesome.<br /><br />Not only do we provide fantastic customer service, we really go out of our way to make sure that you are the next big success story. We offer unbeatable rates and <a href="signup.html">signing up</a> is a cinch. Join now and make your money work for you!</p>
+
+					<h3>Bottom of Content</h3>
+
+				</div>
+
+	            
+
+				<!-- Display the Dow Jones tweets. -->
+
+	            <div id="large-content">
+
+					<h1>Top of Content</h1>
+
+					<h2>Dow Jones Tweets:</h2>
+
+					{% for tweet in DowJones %}
+
+										<p class="tweet"><img src={{tweet.image}} float="left" width="48px" height="48px"/>
+
+										<b>{{tweet.name}}</b>:  <a href={{tweet.link}} target=_blank>{{tweet.text}}</a>
+
+										<br />{{tweet.date}}</p>
+
+					{% endfor %}
+
+					<h3>Bottom of Content</h3>
+
+				</div>
+
+	
+
+	            <!-- Display the NASDAQ tweets. -->
+
+	            <div id="large-content">
+
+					<h1>Top of Content</h1>
+
+					<h2>Nasdaq Tweets:</h2>
+
+					{% for tweet in Nasdaq %}
+
+										<p class="tweet"><img src={{tweet.image}} float="left" width="48px" height="48px"/>
+
+										<b>{{tweet.name}}</b>:  <a href={{tweet.link}} target=_blank>{{tweet.text}}</a>
+
+										<br />{{tweet.date}}</p>
+
+					{% endfor %}
+
+					<h3>Bottom of Content</h3>
+
+				</div>
+
+	            
+
+				<!-- Display the S&P500 tweets. -->
+
+	            <div id="large-content">
+
+					<h1>Top of Content</h1>
+
+					<h2>S&P 500 Tweets:</h2>
+
+					{% for tweetSP in SP500 %}
+
+										<p class="tweet"><img src={{tweetSP.image}} float="left" width="48px" height="48px"/>
+
+										<b>{{tweetSP.name}}</b>:  <a href={{tweetSP.link}} target=_blank>{{tweetSP.text}}</a>
+
+										<br />{{tweetSP.date}}</p>
+
+					{% endfor %}
+
+					<h3>Bottom of Content</h3>
+
+				</div>
+
+			</div>
+
+		</div>
+
+			
+
+		<!-- Footer. -->
+
+		<div id="footer">
+
+			<p align="center">&#169 Zeta Portfolio Management.  All Rights Reserved. Part of <a href="http://courses.cs.tamu.edu/jarvi/2010/CSCE-315/" target="_blank" color="#FFFFF">CSCE 315 Spring 2010</a> at <a href="http://www.tamu.edu" target="_blank">Texas A&M University</a>.</p>
+
+		</div>			
+
+	</body>
+
+</html>
+
