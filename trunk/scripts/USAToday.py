@@ -1,3 +1,7 @@
+#Mapster Project
+#CSCE 470 - Fall 2011
+#Clarissa Soon
+
 import urllib
 import time
 import urllib2

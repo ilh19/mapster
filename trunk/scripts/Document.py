@@ -1,4 +1,4 @@
-keywords = {"tornado": 3, "war":2, "quake":4, "earthquake":4}  # for testing purposes
+#keywords = {"tornado": 3, "war":2, "quake":4, "earthquake":4}  # for testing purposes
 
 class Document:
     #
@@ -6,8 +6,9 @@ class Document:
     # parameter:
     #   link - string with url of article
     #   news - list of words
-    #   frequencies - 
-    def __init__(self, link, news, frequencies):    #title, body):
+    #   keywords - dictionary with keywords and scores 
+    def __init__(self, link, news, frequencies, keywords):    #title, body):
+        self.keywords = keywords
         self.link = link
         self.scores = self.countWords(news, frequencies)        # dictionary containing scores for each keyword found: keyword: score
                                                                 # ( number of ocurrences * weight ) * doc frequency
@@ -24,10 +25,10 @@ class Document:
         d = {}
         for word in text:
             if word in d:                 # word is a keyword and add the weight of that word
-                d[word] += keywords[word]
+                d[word] += self.keywords[word]
             else:
-                if word in keywords:                # word in keywords
-                    d[word] = keywords[word]
+                if word in self.keywords:                # word in keywords
+                    d[word] = self.keywords[word]
                     if word in frequencies:         # frequency added the first time the keyword is found
                         frequencies[word] += 1
                     else:

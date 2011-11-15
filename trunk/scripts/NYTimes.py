@@ -1,4 +1,8 @@
 import json
+#Mapster Project
+#CSCE 470 - Fall 2011
+#Irma Lam 
+
 import time
 import datetime
 import sys
