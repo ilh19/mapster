@@ -81,6 +81,7 @@ def main(args):
     while True:
         country = raw_input('What country would you like news for? ')
         for result in b.get_news(country):
+            print result[0]
             print result[1]
             print '-----'
    

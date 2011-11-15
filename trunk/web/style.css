@@ -21,262 +21,73 @@ a {
 #nonFooter {
 	position: relative;
 	min-height: 100%;
+    width: 800px;
+    margin: 0 auto;
+    padding-bottom: 2.75em;
 }
 
 * html #nonFooter {
 	height: 100%;
 }
 
-#content {
-	width: 800px;
-	margin: 0 auto;
-	background: #d3d1d0;
-	padding-bottom: 2.75em;
-}
-
-
-	/* Header includes the logo, navigation bar and login. */
+	/* Header - i.e. banner. */
 	#header {
-		height: 100px;
+		height: 110px;
 		margin: 0;
-		background: #d3d1d0 url(../images/banner.jpg) no-repeat;
+		background: #fff url(../images/banner.jpg) no-repeat;
 		margin-bottom: 8px;
-	}
-		#header h1 {
-				text-indent: -5000px;
-				background: url(../images/logo.gif) no-repeat;
-				height: 120px;
-				width: 800px;
-		}
-		
-	
-	/* Large-content is for content that takes up the whole page. */
-	#large-content {
-		background: #FFFFFF;
-	}
-		#large-content p {
-			width: 775px;
-			padding-left: 15px;
-			padding-right: 15px;
-			padding-top: 8px;
-			line-height: 1.5;
-		}
-		/* h2 is the header for large-content. */
-		#large-content h2 {
-			margin-right: 15px;
-			margin-left: 15px;
-			margin-top: 3px;
-			font-weight: normal;
-			border-bottom: 1px solid #bfbfbf;
-			font-size: 14px;
-			font-family: Arial, sans-serif;
-			color: #000;
-		}
-		/* h1 is the rounded top for large-content. */
-		#large-content h1, #large-banner h1, #large-banner-h h1 {
-			text-indent: -5000px;
-			height: 8px;
-			background: #d3d1d0 url(../images/content_top.gif) no-repeat;
-		}
-		/* h3 is the rounded bottom for large-content. */	
-		#large-content h3, #large-banner h3, #large-banner-h h3 {
-			text-indent: -5000px;
-			height: 8px;
-			background: #d3d1d0 url(../images/content_bottom.gif) no-repeat;
-			margin-bottom: 8px;
-		}
-	
-		/* large banners. */	
-		#large-banner {
-			background: #d3d1d0;
-		}
-			#large-banner img {
-				width: 800px;
-				display: block;
-				margin-bottom: 8px;
-			}
-		#large-banner-h {
-			background: #d3d1d0;
-		}
-			#large-banner-h img {
-				width: 800px;
-				display: block;
-			}
-		
-		/* Link color. */
-		#large-content a {
-			padding: 1px;
-			margin: -1px;
-			text-decoration: none;
-			color: #337fbb;
-			border-bottom: 1px solid #d3d1d0;	
-		}	
-		#large-content a:hover {
-			background: #cae3f8;
-			color: #0c3a5e;
-			border-bottom-color: #d3d1d0;
-		}
-		#large-content img {
-			float: left;
-			margin-right: 5px;
-		}
-		#large-content p.tweet {
-			height: 48px;
-		}
-	
-	/* Two-column content. Multi-content is the container. */	
-	#multi-content {
-		width: 800px;
-		background: #d3d1d0;
-		margin-bottom: 8px;
-	}
-	
-		/* Link color. */
-		#multi-content a {
-			padding: 1px;
-			margin: -1px;
-			text-decoration: none;
-			color: #337fbb;
-			border-bottom: 1px solid #d3d1d0;	
-		}	
-		#multi-content a:hover {
-			background: #cae3f8;
-			color: #0c3a5e;
-			border-bottom-color: #d3d1d0;
-		}
-		
-		/* Left container. */
-		#multi-left {
-			background: #FFF;
-			float: left;
-			width: 192px;
-		}
-		#multi-left p { 
-			padding-left: 15px;
-			padding-right: 15px;
-		}
-		/* h1 is for left-content rounded top. */
-		#multi-left h1, #left-banner h1 {
-			text-indent: -5000px;
-			height: 8px;
-			background: #d3d1d0 url(../images/left_content_top.gif) no-repeat;
-		}
-		/* h1 is for left-content rounded bottom. */
-		#multi-left h3, #left-banner h3 {
-			text-indent: -5000px;
-			height: 8px;
-			background: #d3d1d0 url(../images/left_content_bottom.gif) no-repeat;
-		}
-		
-		/* Left banners. */
-		#left-banner {
-		background: #d3d1d0;
-		}
-			#left-banner img {
-				width: 192px;
-				display: block;
-			}
-		
-		
-		/* Right container. */
-		#multi-right {
-			background: #FFF;
-			margin-left:200px;
-			width: 600px;
-		}
-			#multi-right p { 
-				padding-left: 15px;
-				padding-right: 15px;
-			}
-			/* h1 is for right-content rounded top. */
-			#multi-right h1 {
-				text-indent: -5000px;
-				height: 8px;
-				background: #d3d1d0 url(../images/right_content_top.gif) no-repeat;
-			}
-			/* h3 is for right-content rounded bottom. */
-			#multi-right h3 {
-				text-indent: -5000px;
-				height: 8px;
-				background: #d3d1d0 url(../images/right_content_bottom.gif) no-repeat;
-				padding-bottom: 8px;
-			}
-			/* h2 is the header for right-content. */
-			#multi-right h2 {
-				margin-right: 15px;
-				margin-left: 15px;
-				margin-top: 3px;
-				font-weight: normal;
-				border-bottom: 1px solid #bfbfbf;
-				font-size: 14px;
-				font-family: Arial, sans-serif;
-				color: #000;
-			}
-		
-		/* Right banner. */
-		#right-banner {
-			background: #d3d1d0;
-		}
-			/* h1 is for right-banner rounded top. */
-			#right-banner h1 {
-				text-indent: -5000px;
-				margin-left: 200px;
-				height: 8px;
-				background: #d3d1d0 url(../images/right_content_top.gif) no-repeat;
-			}
-			/* h1 is for right-banner rounded bottom. */
-			#right-banner h3 {
-				text-indent: -5000px;
-				margin-left: 200px;
-				height: 8px;
-				background: #d3d1d0 url(../images/right_content_bottom.gif) no-repeat;
-				padding-bottom: 8px;
-			}
-		
-			#right-banner img {
-				margin-left: 200px;
-				width: 600px;
-				display: block;
-			}
-	
-	/* Bold content. For use w/ sections. */
-	.content-bold {
-		color: #000;
-		font-weight: bold;
-	}	
-	
-	/* Footer. */	
-	#footer {
-		width: 800px;
-		position: relative;
-		height: 30px;
-		background: #fff url(../images/footer.gif) no-repeat;
-		margin: 0 auto;
-		margin-top: -2.75em;
-	}
-		#footer p {
-			width: 800px;
-			color: #000000;
-			padding-top: 5px;
-		}
-		
-		/* Link color. */
-		#footer a {
-			padding: 1px;
-			margin: -1px;
-			text-decoration: none;
-			color: #FF9700;	
-		}	
-		#footer a:hover {
-			background: #9EFD99;
-			color: #000000;
-		}
-		
-	.small-text{
-		font-size: 8px;
 	}
     
-    .indent35px{
-        margin-left: 35px;
+    #top{
+        margin-bottom: 100px;
+    }
+    #map {
+        width: 500px;
+        height: 300px;
+        background: #e0e0e0;
+        position: relative;
+        float: left;
     }
     
+    #side-list{
+        width: 295px;
+        height: 300px;
+        background: #e0e0e0;
+        position: relative;
+        float: right;
+        overflow: auto;
+    }
+        #side-list a{
+            color: #000000;
+            text-decoration: none;
+        }
+    
+        .light-gray {
+            background: #eeeeee;
+            color: #000000;
+            
+        }        
+        
+        .dark-gray {
+            background: #e0e0e0;
+            color: #000000;
+        }
+    
+    #page-preview-frame{
+        width: 800px;
+        margin-top: 20px;
+        position: relative;
+        display: inline;
+    }
+    
+    #page-preview-content{
+        width: 800px;
+        height: 350px;
+        background: #e0e0e0;
+        position: re
+    }
+    
+    .small{
+        font-size: 1;
+        color: #ffffff;
+    }
