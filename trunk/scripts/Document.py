@@ -10,6 +10,7 @@ class Document:
     def __init__(self, link, news, frequencies, keywords):    #title, body):
         self.keywords = keywords
         self.link = link
+        self.total_words = 0
         self.scores = self.countWords(news, frequencies)        # dictionary containing scores for each keyword found: keyword: score
                                                                 # ( number of ocurrences * weight ) * doc frequency
       #  print self.scores
@@ -23,6 +24,7 @@ class Document:
     #       tuple - (dictionary of keywords, total word count)
     def countWords(self, text, frequencies):
         d = {}
+        self.total_words = len(text)
         for word in text:
             if word in d:                 # word is a keyword and add the weight of that word
                 d[word] += self.keywords[word]
@@ -33,5 +35,6 @@ class Document:
                         frequencies[word] += 1
                     else:
                         frequencies[word] = 1
-    
+        
+       # print "\n\nDictionary of words", d
         return d

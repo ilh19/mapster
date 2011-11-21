@@ -48,7 +48,13 @@ class Bing_API:
                         result_text = response[u'Snippet'].encode('ascii', 'ignore')
                         self.results.append((result_url, result_text))
             except:
+               print "Exception in Bing API: ", sys.exc_info()[0]
                continue
+        # write to a text file
+        #textname = query + "_bing.txt"
+        #output_file = open(textname,'w')
+        #output_file.write(str(self.results))
+        #output_file.close()
         return self.results
     
     #a simple boolean function to indicate if a url is in the current result set to prevent duplicate tuples.  This is for internal use only.

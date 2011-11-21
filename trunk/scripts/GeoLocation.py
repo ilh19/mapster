@@ -47,7 +47,9 @@ class GeoLocation:
             for doc in newsList:
                 #print "scores ", doc.scores
                 if keyword in doc.scores: 
-                    doc.scores[keyword] *= self.frequencies[keyword] / float(len(newsList))
+                   # print "doc.scores[keyword] ", doc.scores[keyword]
+                    doc.scores[keyword] *= self.frequencies[keyword] / (float(len(newsList) * doc.total_words))
+                   # print "keyword: ", keyword, "-score: ", doc.scores[keyword], "-number of articles: ", len(newsList), "\nfrequencies: ", self.frequencies
         return newsList
 
     # findCategories( )
@@ -66,12 +68,12 @@ class GeoLocation:
                     if word in self.categoriesDict[cat]:
                         if cat in categories:               # category was created
                             score, link = categories[cat]   # score for the category; list of tuples: (link, score)
-                            score *= scores[word]
+                            score += scores[word]
                             categories[cat] = (score, self.__insertLink(link, doc.link, scores[word]))
                             
                         else:                               # creates the category
                             categories[cat] = (scores[word], [(doc.link, scores[word])])
-        print "categories", categories
+        #print "categories", categories
         return categories
 
     # insertLink( link, wordLink, score )
