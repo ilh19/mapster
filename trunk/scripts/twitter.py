@@ -12,12 +12,10 @@ class Twitter(object):
         self.user_ids = ['travelgov', 'foreignoffice']
         self.base_url = 'https://api.twitter.com/1/statuses/user_timeline.json?include_entities=true&include_rts=true&screen_name=%s&count=200&include_rts=false'
         self.link_base = 'http://www.twitter.com/%s'
+        self.tweets = {}
     
-    #Call this on a Twitter object. Enter a country.   Results are of the form [(travelgov url, string mash up of tweets'), (foreignoffice url, string mash up of tweets)]. This is if there are tweets for the country.  It will return an empty list if there are no results.
-    def get_recent_posts(self, country):
-        country = country.replace(' ', '%20')
-    
-        results = []
+    #Call this on a Twitter object. Calls the twitter api to retrieve the latest tweets
+    def get_recent_posts(self):
         for id in self.user_ids:
             if self.remaining_hits():
                 url = self.base_url % (id)
@@ -27,22 +25,32 @@ class Twitter(object):
                 except:
                     continue
                 
-                tweets = json.loads(f.read()) 
-                
+                self.tweets[id] = json.loads(f.read())
+               # print "Tweets", str(self.tweets)
+        return self.tweets
+
+
+    #Enter a country. Results are of the form [(travelgov url, string mash up of tweets'), (foreignoffice url, string mash up of tweets)]. This is if there are tweets for the country.  It will return an empty list if there are no results.
+    def get_tweets(self, country):
+        country = country.replace('+', '%20')
+    
+        results = []
+        for id in self.tweets:
+            tweets = self.tweets[id]
+            
+            for tweet in tweets:
+               # print tweet
                 total = []
-                
-                for tweet in tweets:
-                    tweet_text = tweet[u'text'].encode('ascii', 'ignore')
-                    if country in tweet_text.lower():
-                        total.append(tweet_text)
+                tweet_text = tweet[u'text'].encode('ascii', 'ignore')
+                if country in tweet_text.lower():
+                    total.append(tweet_text)
                 
                 text = ''.join(total)  
                 link_url = self.link_base % id
                 
                 if len(text) > 0:
                     results.append((link_url, text))
-                time.sleep(1)
-        
+                        
         return results
 
     #checks for remaining hits
@@ -70,7 +78,9 @@ class Twitter(object):
         
 def main(args):
     t = Twitter()
-    print t.get_recent_posts('turkey')
+    t.get_recent_posts()
+    print t.get_tweets('thailand')
+    print t.get_tweets('saudi arabia')
     
    
 

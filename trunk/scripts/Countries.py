@@ -40,13 +40,15 @@ class Countries:
     def call_apis(self):
         countries = self.get_countries()
         countriesDict = {}
+        bing_news = bing_api.Bing_API()             # creates the Bing API object
+        twitter_tweets = twitter.Twitter()          # creates twitter object
+        twitter_tweets.get_recent_posts()           # gets recent tweets
+        
         for country in countries:
-            bing_news = bing_api.Bing_API()             # creates the Bing API object
-            twitter_tweets = twitter.Twitter()
-            news = NYTimes.get_news(country)            # NYTimes 
-            news.extend(USAToday.get_news(country))     # USAToday
-            news.extend(bing_news.get_news(country))    # Bing API
-            news.extend(twitter_tweets.get_recent_posts(country)) # Twitter API
+            news = NYTimes.get_news(country)                # NYTimes 
+            news.extend(USAToday.get_news(country))         # USAToday
+            news.extend(bing_news.get_news(country))        # Bing API
+            news.extend(twitter_tweets.get_tweets(country)) # Twitter API
             print "Country: %s " % country
             
             location = GeoLocation.GeoLocation(news)      # calculates the scores for each category
@@ -66,7 +68,7 @@ class Countries:
     def write_file(self, dict):
         # write to a text file
         textname = "results.txt"
-        output_file = open(textname,'a')
+        output_file = open(textname,'w')
         output_file.write(str(dict))
         for country in dict:
             cat = dict[country]
