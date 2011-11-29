@@ -23,12 +23,14 @@ def get_news(query):
     twoDaysBefore = today - datetime.timedelta(2)
     startDate = str(twoDaysBefore.year) + get_str(twoDaysBefore.month) + get_str(twoDaysBefore.day )
     endDate = str(today.year) + get_str(today.month) + get_str(today.day)
-    
+
     # gets news
     try:
-        url = "http://api.nytimes.com/svc/search/v1/article?format=json&query="+query+ \
+        url1 = "http://api.nytimes.com/svc/search/v1/article?format=json&query="+query+ \
               "&begin_date="+startDate+"&end_date="+endDate+"&rank=newest&api-key=" + api_key
-    #    url = "http://api.nytimes.com/svc/mostpopular/v2/mostviewed/world/7.json?api-key=b2751dd1dd945ed4c4d17e39dbf78520:2:65203037"
+        url = "http://api.nytimes.com/svc/search/v1/article?format=json&query=geo_facet%3A%5B"+query.upper()+ \
+              "%5D&begin_date="+startDate+"&end_date="+endDate+"&rank=newest&api-key=" + api_key
+
         f = urllib2.urlopen(url)
         
         # Transfer the data to JSON format
@@ -43,11 +45,6 @@ def get_news(query):
             link = unicodedata.normalize('NFKD', doc["url"]).encode('ascii','ignore') 
 
             listNews.append((link, title + " " + body))
-        # write to a text file
-        #textname = query + "_nytimes.txt"
-       # output_file = open(textname,'w')
-        #output_file.write(str(listNews))
-        #output_file.close()
         
         return listNews
     
@@ -64,21 +61,13 @@ def get_str(number):
 
 
 def main():
-    countries = ['Mexico']
+    countries = ['Japan']
     for query in countries:
         listNews = []
         print query
         news = get_news(query)
-        
-        for doc in news:
-            title = unicodedata.normalize('NFKD', doc["title"]).encode('ascii','ignore') 
-            body = unicodedata.normalize('NFKD', doc["body"]).encode('ascii','ignore') 
-            link = unicodedata.normalize('NFKD', doc["url"]).encode('ascii','ignore') 
 
-            listNews.append((link, title + " " + body))
-        output_file = open(query + ".txt", 'w')
-        output_file.write("Query: %s\n%s" % (query, listNews))
-        output_file.close()
+        print news
         
 if __name__ == '__main__':
     main()

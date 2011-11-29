@@ -35,7 +35,7 @@ class Document:
             if len(allMatches):                                 # keyword in text
                 freq = len(allMatches)                          # frequency of keyword in text
                 d[keyword] = freq * self.keywords[keyword]      # calculates the weight * freq of keyword
-                if keyword in frequencies:
+                if keyword in frequencies:                      # times the keyword appears a the document
                     frequencies[keyword] += 1
                 else:
                     frequencies[keyword] = 1
@@ -45,7 +45,8 @@ class Document:
 
 def main(args):
     link = "link1"
-    news = 'travelwarning civil emergency war war tornado quake ECONOMIC MEMO; The Gridlock Where Debts Meet Politics - Economic Memo WASHINGTON &mdash; With Greece struggling to form a government that can force harsh austerity measures onto a weary public, Europe is in usual form, taking a couple of steps toward solving its fiscal crisis and then a couple of steps backward. Washington, meanwhile, is hoping that the latest deficit-reduction committee in Congress can succeed where tornado war quake'
+    news = "tornado tornado travelwarning"
+    news2 = 'travelwarning civil emergency war war tornado quake ECONOMIC MEMO; The Gridlock Where Debts Meet Politics - Economic Memo WASHINGTON &mdash; With Greece struggling to form a government that can force harsh austerity measures onto a weary public, Europe is in usual form, taking a couple of steps toward solving its fiscal crisis and then a couple of steps backward. Washington, meanwhile, is hoping that the latest deficit-reduction committee in Congress can succeed where tornado war quake'
     frequencies = {}
     doc = Document(link, news, frequencies, keywords)
     print "score: ", doc.scores, "frequencies: ", frequencies
