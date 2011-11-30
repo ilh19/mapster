@@ -1,0 +1,8 @@
+cron:
+- description: daily retrieval of news job
+  url: /cron
+  schedule: every day 7:07
+  
+- description: update tables for maps
+  url: /maps
+  schedule: every day 7:06
