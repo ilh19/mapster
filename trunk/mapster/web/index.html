@@ -3,7 +3,8 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<title>Mapster Travel</title>
-		<link href="style.css" rel="stylesheet" type="text/css" />
+		<link href="/web/style.css" rel="stylesheet" type="text/css" />
+        <!--../web/style.css-->
         <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
 	</head>
 	<body>
@@ -12,8 +13,29 @@
                 <div id="header">
             </div>
             <div id="top">
+                    {{path}}
                 <div id="map">
-                    <iframe name="map-frame" width="500px" height="300px" scrolling="no" frameborder="no" src="https://www.google.com/fusiontables/embedviz?gco_region=world&gco_dataMode=regions&gco_chartArea=%7B%22top%22%3A%2230%22%7D&containerId=gviz_canvas&q=select+gvizcountry(col0)%2C+col1%2C+col0+from+2168727+&qrs=where+gvizcountry(col0)+%3E%3D+&qre=+and+gvizcountry(col0)+%3C%3D+&qe=+limit+10&viz=GVIZ&t=MAP&width=500&height=300"></iframe>
+                    <iframe name="map-frame" width="800px" height="600px" scrolling="no" frameborder="no" src={{map_url}}></iframe>
+                    
+                    <form action="/index" method="accept">
+                        <input type="radio" name="map-radio" value="All"  onclick="this.form.submit();"/>
+                        <label for="All">All</label>
+                        <input type="radio" name="map-radio" value="Crime" onclick="this.form.submit();"/>
+                        <label for="Crime">Crime & Terrorism</label>
+                        <input type="radio" name="map-radio" value="Epidemic" onclick="this.form.submit();"/> 
+                        <label for="Epidemic">Epidemic</label>
+                        <input type="radio" name="map-radio" value="Politics" onclick="this.form.submit();"/> 
+                        <label for="Politics">Politics & Religion</label>
+                        <input type="radio" name="map-radio" value="NaturalDisasters" onclick="this.form.submit();"/> 
+                        <label for="NaturalDisasters">Natural Disasters</label>
+                        <input type="radio" name="map-radio" value="Nuclear" onclick="this.form.submit();"/> 
+                        <label for="Nuclear">Nuclear</label>
+                        <input type="radio" name="map-radio" value="Other" onclick="this.form.submit();"/> 
+                        <label for="Other">Other</label>
+                        <input type="radio" name="map-radio" value="Twitter" onclick="this.form.submit();"/> 
+                        <label for="Twitter">Twitter</label>
+                        <br />
+                    </form>
                 </div>
                 <div id="side-list">
                     <p class="light-gray"><a href="http://www.washingtonpost.com/blogs/ezra-klein/post/how-the-euromess-could-drag-down-the-united-states/2011/11/15/gIQAbCcWON_blog.html" target="preview-frame">With the crisis in Europe still raging, analysts are frantically trying to game out what a euro zone implosion would mean for the United States. Yesterday, the Federal Reserve Bank of San Francisco put out a research note pegging the odds of a U ...</a></p>
