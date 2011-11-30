@@ -8,7 +8,7 @@ import NYTimes
 import twitter
 import USAToday
 
-filename = "countries.txt"
+filename = "countries_top50.txt"
 
 # Calls all the API for each country and calculates their scores per category calling GeoLocation class
 class Countries:

@@ -4,7 +4,6 @@ China
 Spain
 Italy
 United Kingdom
-England
 Turkey
 Germany
 Malaysia
@@ -47,4 +46,5 @@ Nepal
 Kenya
 Guinea
 Belize
-Costa Rica
+Algeria
+Haiti

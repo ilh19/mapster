@@ -4,6 +4,7 @@
 
 from urllib2 import *
 import json
+import unicodedata
 
 #Twitter class to read from the US' TravelGov twitter account and UK's foreignoffice twitter account.  It searches all tweets by these two accounts for a given country.  Results are of the form [(travelgov url, string mash up of tweets'), (foreignoffice url, string mash up of tweets)]
 class Twitter(object):
@@ -39,7 +40,7 @@ class Twitter(object):
             tweets = self.tweets[id]
             
             for tweet in tweets:
-               # print tweet
+               #print "tweet", tweet
                 total = []
                 tweet_text = tweet[u'text'].encode('ascii', 'ignore')
                 if country.lower() in tweet_text.lower():
@@ -49,7 +50,14 @@ class Twitter(object):
                 link_url = self.link_base % id
                 
                 if len(text) > 0:
-                    results.append((link_url, text))
+                    urls = []
+                    print "tweet", tweet
+                    urls = tweet[u'entities'][u'urls']
+                    if len(urls):
+                        link = unicodedata.normalize('NFKD', urls[0][u'url']).encode('ascii','ignore') 
+                        results.append((link, text))
+                    else:
+                        results.append((link_url,text))
                         
         return results
 
@@ -80,7 +88,7 @@ def main(args):
     t = Twitter()
     t.get_recent_posts()
     print t.get_tweets('thailand')
-    print t.get_tweets('saudi arabia')
+   # print t.get_tweets('saudi arabia')
     
    
 
