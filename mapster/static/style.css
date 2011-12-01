@@ -16,6 +16,7 @@ body {
 
 a {
 	outline: none !important;
+    color: #000000;
 }
 
 #nonFooter {
@@ -42,37 +43,14 @@ a {
         margin-bottom: 100px;
     }
     #map {
-        width: 500px;
-        height: 300px;
+        width: 800px;
+        height: 600px;
         background: #e0e0e0;
         position: relative;
         float: left;
     }
     
-    #side-list{
-        width: 295px;
-        height: 300px;
-        background: #e0e0e0;
-        position: relative;
-        float: right;
-        overflow: auto;
-    }
-        #side-list a{
-            color: #000000;
-            text-decoration: none;
-        }
-    
-        .light-gray {
-            background: #eeeeee;
-            color: #000000;
-            
-        }        
         
-        .dark-gray {
-            background: #e0e0e0;
-            color: #000000;
-        }
-    
     #page-preview-frame{
         width: 800px;
         margin-top: 20px;
@@ -80,11 +58,15 @@ a {
         display: inline;
     }
     
-    #page-preview-content{
+    #tweets{
         width: 800px;
-        height: 350px;
+        margin-top: 15px;
+        position:relative;
+        
+    }
+    
+    #tweets p{
         background: #e0e0e0;
-        position: re
     }
     
     .small{
