@@ -1,4 +1,4 @@
-from authorization.clientlogin import ClientLogin
+from clientlogin import ClientLogin
 from sqlbuilder import SQL
 import ftclient
 from fileimporter import CSVImporter
@@ -11,7 +11,7 @@ import Countries
 #logging.info("START")
 
 #tableDict = {'crime/terrorism': 2301765, 'epidemics': 2301395, 'nuclear': 2301384, 'travel gov alert': 2301764, 'politics/religious': 2301389, 'total': 2301774, 'other': 2301499, 'natural disasters/weather': 2301375}
-tableDict = {'crime/terrorism': 2301363, 'epidemics': 2301470, 'nuclear': 2301471, 'travel gov alert': 2301472, 'politics/religious': 2301364, 'total': 2301469, 'other': 2301365, 'natural disasters/weather': 2302037}
+tableDict = {'crime/terrorism': 2301363, 'epidemics': 2301470, 'nuclear': 2301471, 'travel gov alert': 2301472, 'politics/religious': 2301364, 'total': 2301469, 'other': 2301365, 'natural disasters/weather': 2301362}
 #dictionary = {}
 
 def update(countryList):
@@ -41,7 +41,7 @@ def update(countryList):
             logging.info(a)
             if not a in dictionary[i]:
                 if not (ft_client.query(SQL().select(tableDict[a], rid, "Country='%s'" %i)).split("\n")[1]) == '':
-                    print (ft_client.query(SQL().select(tableDict[a], rid, "Country='%s'" %i)).split("\n")[1])
+                   # print (ft_client.query(SQL().select(tableDict[a], rid, "Country='%s'" %i)).split("\n")[1])
                     rowID = int(ft_client.query(SQL().select(tableDict[a], rid, "Country='%s'" %i)).split("\n")[1])
                     if a == "total":
                         ft_client.query(SQL().update(tableDict[a], cols={'Score': 0}, row_id=rowID))
@@ -72,7 +72,7 @@ def update(countryList):
                         ft_client.query(SQL().update(tableDict[a], cols={"News1": ll[0]}, row_id=rowID))
                         ft_client.query(SQL().update(tableDict[a], cols={"News2": ll[1]}, row_id=rowID))
                         ft_client.query(SQL().update(tableDict[a], cols={"News3": ll[2]}, row_id=rowID))
-    logging.info("FINISH")
+    logging.info("FINISHED UPDATING")
 #print "FINISH"
 
 ####countries = ['Thailand', 'Brazil', 'Argentina', 'Austria', 'Russia', 'Morocco', 'South+Africa', 'Egypt', 'Saudi+Arabia', 'Syria']

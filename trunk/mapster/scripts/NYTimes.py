@@ -1,4 +1,3 @@
-import json
 #Mapster Project
 #CSCE 470 - Fall 2011
 #Irma Lam 
@@ -8,6 +7,7 @@ import datetime
 import sys
 import urllib2
 import unicodedata
+from django.utils import simplejson as json
 
 api_key = "8eea45b381642654c6ea186ead00f6c7:7:65075079"
 

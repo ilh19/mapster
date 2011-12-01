@@ -1,4 +1,0 @@
-backends:
-- name: countries
-  start: Countries.py
-  options: dynamic

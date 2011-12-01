@@ -3,7 +3,7 @@
 #Lauren Dunn
 
 from urllib2 import *
-import json
+from django.utils import simplejson as json
 
 #Bing API
 
