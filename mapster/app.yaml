@@ -6,10 +6,13 @@ api_version: 1
 handlers:
 - url: /static
   static_dir: static
+  
 - url: /images
   static_dir: images
+  
 - url: /.*
   script: scripts/mainpage.py
+  
 - url: /cron1
   script: scripts/main1.py  
 
@@ -24,4 +27,19 @@ handlers:
   
 - url: /cron5
   script: scripts/main5.py 
+  
+- url: /cron6
+  script: scripts/main6.py  
+
+- url: /cron7
+  script: scripts/main7.py  
+  
+- url: /cron8
+  script: scripts/main8.py  
+  
+- url: /cron9
+  script: scripts/main9.py  
+  
+- url: /cron10
+  script: scripts/main10.py 
   
