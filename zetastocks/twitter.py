@@ -39,7 +39,7 @@ def getTweets(symbol, size):
         
         failedSearch = rawFile.find("[]",0, len(rawFile)-1)
         if failedSearch != -1:
-            return tweets
+            return tweet
         
     
         #remove header/tralier data

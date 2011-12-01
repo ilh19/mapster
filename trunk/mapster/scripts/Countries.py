@@ -2,20 +2,22 @@
 #CSCE 470 - Fall 2011
 #Irma Lam
 
-import GeoLocation
 import bing_api
+import GeoLocation
 import NYTimes
 import twitter
 import USAToday
 
 filename = "countries_top50.txt"
+countries = ['France', 'United+States', 'China', 'Spain', 'Italy', 'United+Kingdom', 'Turkey', 'Germany', 'Malaysia', 'Mexico', 'Thailand', 'Brazil', 'Argentina', 'Austria', 'Russia', 'Morocco', 'South+Africa', 'Egypt', 'Saudi+Arabia', 'Syria', 'United+Arab+Emirates', 'Colombia', 'Cuba', 'Dominican+Republic', 'Japan', 'North+Korea', 'South+Korea', 'Iran', 'Iraq', 'Afghanistan', 'Australia', 'Indonesia', 'Singapore', 'Macau', 'Hong+Kong', 'Ukraine', 'Namibia', 'Nigeria', 'Bahrain', 'Puerto+Rico', 'Canada', 'Burundi', 'Liberia', 'Eritrea', 'Nepal', 'Kenya', 'Guinea', 'Belize', 'Algeria', 'Haiti'] 
 
 # Calls all the API for each country and calculates their scores per category calling GeoLocation class
 class Countries:
     # parameters:
     # data members:
     #       countries - ["country": [("link", score)]
-    def __init__(self):
+    def __init__(self, countriesList):
+        self.countriesList = countriesList
         self.countries = self.call_apis()      
 
     # get_countries( )
@@ -38,13 +40,13 @@ class Countries:
     # returns:
     #       countriesDict - dictionary of countries and news
     def call_apis(self):
-        countries = self.get_countries()
+        #countries = self.get_countries()
         countriesDict = {}
         bing_news = bing_api.Bing_API()             # creates the Bing API object
         twitter_tweets = twitter.Twitter()          # creates twitter object
         twitter_tweets.get_recent_posts()           # gets recent tweets
         
-        for country in countries:
+        for country in self.countriesList:
             news = USAToday.get_news(country)                        # USAToday
             news.extend(bing_news.get_news(country))                 # Bing API
             news.extend(twitter_tweets.get_tweets(country))          # Twitter API
@@ -53,9 +55,10 @@ class Countries:
             print "Country: %s " % country
             
             location = GeoLocation.GeoLocation(news)      # calculates the scores for each category
+            country = country.replace('+',' ')
             countriesDict[country] = location.categories  # assigns those categories
 
-        self.write_file(countriesDict)
+       # self.write_file(countriesDict)
         
         return countriesDict
 
@@ -77,17 +80,17 @@ class Countries:
 
         output_file.close()
     
-
-def main():
-    countries = Countries()
-    c = countries.countries
-    for country in c:
-        cat = c[country]
-        print "COUNTRY: ", country
-        for category in cat:
-            print category, ": ", cat[category]
-            print"\n"
-        print"\n\n"
-        
-if __name__ == '__main__':
-    main()
+#### Example
+####def main():
+####    countries = Countries()
+####    c = countries.countries
+####    for country in c:
+####        cat = c[country]
+####        print "COUNTRY: ", country
+####        for category in cat:
+####            print category, ": ", cat[category]
+####            print"\n"
+####        print"\n\n"
+####        
+####if __name__ == '__main__':
+####    main()

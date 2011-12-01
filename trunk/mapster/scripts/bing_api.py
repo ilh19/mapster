@@ -81,17 +81,17 @@ class Bing_API:
     """
         
 #an example of how to use this class.
-def main(args):
-    
-    b = Bing_API()
-    while True:
-        country = raw_input('What country would you like news for? ')
-        for result in b.get_news(country):
-            print result[0]
-            print result[1]
-            print '-----'
-   
-
-if __name__ == '__main__':
-    import sys
-    main(sys.argv)
+####def main(args):
+####    
+####    b = Bing_API()
+####    while True:
+####        country = raw_input('What country would you like news for? ')
+####        for result in b.get_news(country):
+####            print result[0]
+####            print result[1]
+####            print '-----'
+####   
+####
+####if __name__ == '__main__':
+####    import sys
+####    main(sys.argv)

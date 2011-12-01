@@ -1,0 +1,20 @@
+cron:
+- description: daily retrieval of news job
+  url: /cron1
+  schedule: every day 7:00
+
+- description: daily retrieval of news job
+  url: /cron2
+  schedule: every day 7:15
+  
+- description: daily retrieval of news job
+  url: /cron3
+  schedule: every day 7:30
+  
+- description: daily retrieval of news job
+  url: /cron4
+  schedule: every day 7:45
+  
+- description: daily retrieval of news job
+  url: /cron5
+  schedule: every day 8:00

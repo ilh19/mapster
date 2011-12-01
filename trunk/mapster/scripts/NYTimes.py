@@ -59,15 +59,15 @@ def get_str(number):
     else:
         return str(number)
 
-
-def main():
-    countries = ['Japan']
-    for query in countries:
-        listNews = []
-        print query
-        news = get_news(query)
-
-        print news
-        
-if __name__ == '__main__':
-    main()
+## Example
+####def main():
+####    countries = ['Japan']
+####    for query in countries:
+####        listNews = []
+####        print query
+####        news = get_news(query)
+####
+####        print news
+####        
+####if __name__ == '__main__':
+####    main()
