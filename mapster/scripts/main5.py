@@ -9,7 +9,7 @@ from scripts import updateTable
 
 import logging
 
-countries = ['Canada', 'Burundi', 'Liberia', 'Eritrea', 'Nepal', 'Kenya', 'Guinea', 'Belize', 'Algeria', 'Haiti']
+countries = ['Canada', 'Burundi', 'Liberia', 'Eritrea', 'Nepal']
 class CronMailer(webapp.RequestHandler):
     def get(self):
         logging.info("Get news: Started!")

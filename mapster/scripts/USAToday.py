@@ -6,7 +6,7 @@ import urllib
 import time
 import urllib2
 from urllib2 import *
-import json
+from django.utils import simplejson as json
 from xml.dom import minidom
 import unicodedata
 

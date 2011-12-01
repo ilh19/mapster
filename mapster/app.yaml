@@ -4,15 +4,6 @@ runtime: python
 api_version: 1
 
 handlers:
-- url: /static
-  static_dir: static
-  
-- url: /images
-  static_dir: images
-  
-- url: /.*
-  script: scripts/mainpage.py
-  
 - url: /cron1
   script: scripts/main1.py  
 
@@ -43,3 +34,11 @@ handlers:
 - url: /cron10
   script: scripts/main10.py 
   
+- url: /static
+  static_dir: static
+  
+- url: /images
+  static_dir: images
+  
+- url: /.*
+  script: scripts/mainpage.py
