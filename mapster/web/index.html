@@ -15,9 +15,11 @@
                 <div id="map">
                     <center>
                         <iframe name="map-frame" width="800px" height="600px" scrolling="no" frameborder="no" src={{map_url}}></iframe>
+                        <p>You are now viewing: {{now_viewing}}</p>
+                        <p>&nbsp</p>
                         
                         <form action="/index" method="accept">
-                            <input type="radio" name="map-radio" value="All"  onclick="this.form.submit();" checked/>
+                            <input type="radio" name="map-radio" value="All"  onclick="this.form.submit();"/>
                             <label for="All">All</label>
                             <input type="radio" name="map-radio" value="Crime" onclick="this.form.submit();"/>
                             <label for="Crime">Crime & Terrorism</label>

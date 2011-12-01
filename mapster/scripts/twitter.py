@@ -3,7 +3,7 @@
 #Mapster, CSCE 470 Fall 2011
 
 from urllib2 import *
-import json
+from django.utils import simplejson as json
 import unicodedata
 
 #Twitter class to read from the US' TravelGov twitter account and UK's foreignoffice twitter account.  It searches all tweets by these two accounts for a given country.  Results are of the form [(travelgov url, string mash up of tweets'), (foreignoffice url, string mash up of tweets)]
