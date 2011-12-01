@@ -47,9 +47,9 @@ def update(countryList):
                         ft_client.query(SQL().update(tableDict[a], cols={'Score': 0}, row_id=rowID))
                     else:
                         ft_client.query(SQL().update(tableDict[a], cols={'Score': 0}, row_id=rowID))
-                        ft_client.query(SQL().update(tableDict[a], cols={"Link1": ''}, row_id=rowID))
-                        ft_client.query(SQL().update(tableDict[a], cols={'Link2': ''}, row_id=rowID))
-                        ft_client.query(SQL().update(tableDict[a], cols={'Link3': ''}, row_id=rowID))
+                        ft_client.query(SQL().update(tableDict[a], cols={"News1": ''}, row_id=rowID))
+                        ft_client.query(SQL().update(tableDict[a], cols={'News2': ''}, row_id=rowID))
+                        ft_client.query(SQL().update(tableDict[a], cols={'News3': ''}, row_id=rowID))
             else:
                 if not (ft_client.query(SQL().select(tableDict[a], rid, "Country='%s'" %i)).split("\n")[1]) == '':
                     print (ft_client.query(SQL().select(tableDict[a], rid, "Country='%s'" %i)).split("\n")[1])
@@ -69,9 +69,9 @@ def update(countryList):
                         logging.info(str(ll[1]))
                         logging.info(str(ll[2]))    
                         ft_client.query(SQL().update(tableDict[a], cols={'Score': (dictionary[i])[a][0]}, row_id=rowID))
-                        ft_client.query(SQL().update(tableDict[a], cols={"Link1": ll[0]}, row_id=rowID))
-                        ft_client.query(SQL().update(tableDict[a], cols={"Link2": ll[1]}, row_id=rowID))
-                        ft_client.query(SQL().update(tableDict[a], cols={"Link3": ll[2]}, row_id=rowID))
+                        ft_client.query(SQL().update(tableDict[a], cols={"News1": ll[0]}, row_id=rowID))
+                        ft_client.query(SQL().update(tableDict[a], cols={"News2": ll[1]}, row_id=rowID))
+                        ft_client.query(SQL().update(tableDict[a], cols={"News3": ll[2]}, row_id=rowID))
     logging.info("FINISH")
 #print "FINISH"
 
