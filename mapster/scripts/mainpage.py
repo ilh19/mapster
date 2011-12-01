@@ -86,9 +86,15 @@ class Tweet:
         self.url = url
         self.text = text
 
+class AboutPage(webapp.RequestHandler):
+    def get(self):
+        path = os.path.join(os.path.dirname(__file__), '../web/about.html')
+        self.response.out.write(template.render(path, {}))
+
 application = webapp.WSGIApplication(
                                      [('/', MainPage),
-                                     ('/index', MainPage)],
+                                     ('/index', MainPage),
+                                     ('/about', AboutPage)],
                                      debug=True)
 
 def main():

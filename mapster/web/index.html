@@ -4,13 +4,23 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 		<title>Mapster Travel</title>
 		<link href="/static/style.css" rel="stylesheet" type="text/css" />
-        <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
 	</head>
 	<body>
 		<div id="nonFooter">
                 <!-- Display the header. -->
                 <div id="header">
-            </div>
+                    <DIV ALIGN=CENTER>
+                        <MAP NAME="map1">
+                            <AREA HREF="/index" ALT="Mapster" TITLE="Mapster" SHAPE=RECT COORDS="7,28,265,94">
+                           <AREA HREF="/about" ALT="About" TITLE="About" SHAPE=RECT COORDS="690,54,797,82">
+                        </MAP>
+
+                        <IMG SRC="/images/banner.jpg"
+                           ALT="Banner" BORDER=0 WIDTH=800 HEIGHT=100
+                           USEMAP="#map1"><BR>
+                    </DIV>
+                </div>
             <div id="top">
                 <div id="map">
                     <center>
@@ -46,8 +56,10 @@
             <div id="page-preview-frame">
                 
                 <div id="tweets"><center>
+                    <p>&nbsp;</p>
                     <form action="/index" method="accept">
                         <p align="center">
+                        
                             Country:
                             <input name="country" type="sumbit" value="Get Tweets!" />
                         </p>
@@ -61,7 +73,7 @@
                             </p>
                         {%endfor%}
                     {%else%}{% if blank_country %}
-                         Enter a country above to get real time information!
+                         Enter a country above to get real time information from the <a href="http://travel.state.gov/travel/cis_pa_tw/tw/tw_1764.html">U.S. Department of State</a> and <a href="http://www.fco.gov.uk/en/travel-and-living-abroad/travel-advice-by-country/">U.K. Foreign & Commonwealth Office</a>.
                     {%else%}
                         There is no current information about {{country}}
                     {%endif%}{%endif%}
