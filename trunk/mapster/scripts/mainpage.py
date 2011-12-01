@@ -24,13 +24,22 @@ class MainPage(webapp.RequestHandler):
         map_url = ''
         tweets = []
         if not is_result:   
-            map_url = self.get_map('All')
+            map_string = 'All'
+            map_url = self.get_map(map_string)
         else:
             map_url = self.get_map(map_string)
             if not blank_country:
                 t = twitter.Twitter()
                 tweets = t.return_frontpage_tweets(country_string)
         
+        if len(map_string) == 0:
+            map_string = 'All'
+        elif map_string == 'Crime':
+            map_string = 'Crime & Terrorism'
+        elif map_string == 'Politics':
+            map_string = 'Politics & Religion'
+        elif map_string == 'NaturalDisasters':
+            map_string = 'Natural Disasters'
         
         
         tweet_objs = []
@@ -40,6 +49,7 @@ class MainPage(webapp.RequestHandler):
         are_tweets = False
         if len(tweets) > 0:
             are_tweets = True
+       
         
         template_values = {
             'map_url' : map_url,
@@ -47,6 +57,7 @@ class MainPage(webapp.RequestHandler):
             'are_tweets': are_tweets,
             'country': country_string,
             'blank_country': blank_country,
+            'now_viewing': map_string
         }
         path = os.path.join(os.path.dirname(__file__), '../web/index.html')
         self.response.out.write(template.render(path, template_values))
