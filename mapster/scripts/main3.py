@@ -16,10 +16,10 @@ class CronMailer(webapp.RequestHandler):
         
         update = updateTable.update(countries)
         
-        mail.send_mail(sender="irms19@gmail.com",
-            to="irms19@gmail.com",
-            subject="News retrieval complete!",
-            body="Scores and tables have been updated 3 have been computed!")
+        #mail.send_mail(sender="irms19@gmail.com",
+        #    to="irms19@gmail.com",
+        #    subject="News retrieval complete!",
+        #    body="Scores and tables have been updated 3 have been computed!")
         logging.info("Get news: Finished!")
 
 application = webapp.WSGIApplication([('/cron3', CronMailer)],debug=True)
